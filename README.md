@@ -29,7 +29,7 @@
    - 📊 `SUM()`: Belirli bir sütunun toplamını alır.
    - 📊 `GROUP BY`: Verileri gruplamak için kullanılır.
 
-* 5.) Beşinci Sorgu:
+* 5.) Beşinci Sorgu :
    - ⚙️ `SELECT`: Veritabanından veri seçmek için kullanılır.
    - 🏷️ `Categories.CategoryName`: Kategori adını seçer.
    - 📊 `SUM()`: Belirli bir sütunun toplamını alır.
