@@ -1,4 +1,4 @@
--- Hangi ürünüm hangi kategoridedir.
+-- Hangi Ã¼rÃ¼nÃ¼m hangi kategoridedir.
 -- (categories, products)(CategoryName, ProductName)
 SELECT
 	Products.ProductName,
@@ -6,7 +6,7 @@ SELECT
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
 
--- Hangi ürünü, hangi tedarikçi sa?l?yor?
+-- Hangi Ã¼rÃ¼nÃ¼, hangi tedarikÃ§i sa?l?yor?
 -- (products, suppliers)
 SELECT
 	Products.ProductName,
@@ -14,7 +14,7 @@ SELECT
 FROM Products
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
--- Çal??anlar?m Ne kadarl?k sat?? yapm??
+-- Ã‡al??anlar?m Ne kadarl?k sat?? yapm??
 -- (employees, orders, order details)
 SELECT
 	(Employees.FirstName + ' ' + Employees.LastName) AS FullName,
@@ -24,7 +24,7 @@ INNER JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
 INNER JOIN [Order Details] AS od ON Orders.OrderID = od.OrderID
 GROUP BY Employees.FirstName + ' ' + Employees.LastName;
 
--- Ülkelere göre ne kadarl?k sat?? yapm???m
+-- Ãœlkelere gÃ¶re ne kadarl?k sat?? yapm???m
 -- (customers, orders, order details)
 SELECT
 	Customers.Country,
@@ -34,7 +34,7 @@ INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
 INNER JOIN [Order Details] AS od ON od.OrderID = Orders.OrderID
 GROUP BY Customers.Country;
 
--- Hangi kategoride kaç tane ürün satm???m
+-- Hangi kategoride kaÃ§ tane Ã¼rÃ¼n satm???m
 -- (categories, products, order details)
 SELECT
 	Categories.CategoryName,
@@ -45,8 +45,8 @@ INNER JOIN [Order Details] AS od ON Products.ProductID = od.ProductID
 GROUP BY Categories.CategoryName
 ORDER BY Amount;
 
--- Çal??anlar?m ürün baz?nda ne kadarl?k sat?? yapm??t?r
--- çal??an ad?, ürün ad?, adet, gelir
+-- Ã‡al??anlar?m Ã¼rÃ¼n baz?nda ne kadarl?k sat?? yapm??t?r
+-- Ã§al??an ad?, Ã¼rÃ¼n ad?, adet, gelir
 -- (Employees, orders, order details, products)
 SELECT
 	(Employees.FirstName + ' ' + Employees.LastName) AS FullName,
@@ -59,3 +59,14 @@ INNER JOIN [Order Details] AS od ON Orders.OrderID = od.OrderID
 INNER JOIN Products ON Products.ProductID = od.ProductID
 GROUP BY Employees.FirstName + ' ' + Employees.LastName, Products.ProductName
 ORDER BY FullName;
+
+
+---------------------------------------
+CREATE FUNCTION Emcet (@Yas FLOAT) 
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @YÄ±l FLOAT;
+    SET @YÄ±l = @Yas * 26;
+    RETURN @YÄ±l;
+END;
